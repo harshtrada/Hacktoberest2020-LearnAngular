@@ -1,0 +1,24 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav"
+      fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'">
+    <mat-toolbar>Content</mat-toolbar>
+    <mat-nav-list (click)="drawer.toggle()">
+      <a mat-list-item>Getting Started</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <h1>Hacktoberfest 2020: Learn Angular</h1>
+    </mat-toolbar>
+    <router-outlet (click)="drawer.close()"></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
